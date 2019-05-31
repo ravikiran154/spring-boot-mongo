@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Tori Carless",
+    "designation": "Administrator"
+  },
+  {
+    "id": 2,
+    "name": "Leticia Mariotte",
+    "designation": "Developer"
+  },
+  {
+    "id": 3,
+    "name": "Adriano Waldocke",
+    "designation": "Manager"
+  },
+  {
+    "id": 4,
+    "name": "Morena Roughey",
+    "designation": "Administrator"
+  },
+  {
+    "id": 5,
+    "name": "Ingeberg Creer",
+    "designation": "Sr. Developer"
+  }
+]
