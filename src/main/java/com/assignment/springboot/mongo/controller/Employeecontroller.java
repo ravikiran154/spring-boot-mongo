@@ -1,6 +1,7 @@
 package com.assignment.springboot.mongo.controller;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.assignment.springboot.mongo.model.Employee;
+import com.assignment.springboot.mongo.model.SearchCriteria;
+import com.assignment.springboot.mongo.model.SearchEntry;
 import com.assignment.springboot.mongo.service.Employeeservice;
 
 @RestController
@@ -101,5 +104,22 @@ public class Employeecontroller {
 		logger.debug("Deleting all employees.");
 		serv.deleteAllEmployees();
 		return "All employee records deleted.";
+	}
+	
+	
+	@GetMapping(value= "/search")
+	public List<Employee> search() {
+		//hard coded these values, but ideally they should come from UI
+		SearchCriteria searchCriteria = new SearchCriteria();
+		SearchEntry entry1 = new SearchEntry();
+		SearchEntry entry2 = new SearchEntry();
+		entry1.setKey("designation");
+		entry1.setOperator("=");
+		entry1.setValue("Developer");
+		entry2.setKey("name");
+		entry2.setOperator("=");
+		entry2.setValue("ravi");
+		searchCriteria.setSearchEntries(Arrays.asList(entry1,entry2));
+		return serv.search(searchCriteria);
 	}
 }

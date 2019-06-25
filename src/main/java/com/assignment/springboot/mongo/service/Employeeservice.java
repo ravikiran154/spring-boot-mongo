@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Pageable;
 
 import com.assignment.springboot.mongo.model.Employee;
+import com.assignment.springboot.mongo.model.SearchCriteria;
 
 public interface Employeeservice {
 
@@ -45,4 +46,7 @@ public interface Employeeservice {
 	 * Method to delete all employees using mongo-db repository.
 	 */
 	public void deleteAllEmployees();
+	
+	
+	public List<Employee>search(SearchCriteria searchCriteria);
 }
